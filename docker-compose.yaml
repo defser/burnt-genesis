@@ -28,9 +28,8 @@ services:
       VAL_SECURITY_CONTACT: "kevin@heliosstatking.com"
       VAL_WEBSITE: "https://heliosstatking.com"
     volumes:
-      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-mainnet-1:/tmp/testnet
 
   add-genesis-account:
     image: burntnetwork/xion:latest
@@ -44,9 +43,8 @@ services:
       GENESIS_AMOUNT: "1000000uxion"
       ADDRESS: ""
     volumes:
-      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-mainnet-1:/tmp/testnet
 
   collect-gentxs:
     image: burntnetwork/xion:latest
@@ -58,9 +56,8 @@ services:
       MONIKER: "Helios Staking"
       CHAIN_ID: "xion-mainnet-1"
     volumes:
-      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-mainnet-1:/tmp/testnet
 
   validate-genesis:
     image: burntnetwork/xion:latest
@@ -72,8 +69,8 @@ services:
       MONIKER: "Helios Staking"
       CHAIN_ID: "xion-mainnet-1"
     volumes:
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-mainnet-1:/tmp/testnet
 
   generate-hashes:
     image: debian:bookworm-20240130-slim
@@ -81,8 +78,8 @@ services:
     command:
       - /tmp/scripts/generate-hashes.sh
     volumes:
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-mainnet-1:/tmp/testnet
 
   verify-hashes:
     image: debian:bookworm-20240130-slim
@@ -90,8 +87,8 @@ services:
     command:
       - /tmp/scripts/verify-hashes.sh
     volumes:
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-mainnet-1:/tmp/testnet
 
   #
   # xion-testnet-1
@@ -107,9 +104,8 @@ services:
       MONIKER: "Helios Staking"
       CHAIN_ID: "xion-testnet-1"
     volumes:
-      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-testnet-1:/tmp/testnet
 
   generate-hashes-xion-testnet-1:
     image: debian:bookworm-20240130-slim
@@ -118,9 +114,8 @@ services:
     command:
       - /tmp/scripts/generate-hashes.sh
     volumes:
-      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-testnet-1:/tmp/testnet
 
   verify-hashes-xion-testnet-1:
     image: debian:bookworm-20240130-slim
@@ -129,6 +124,5 @@ services:
     command:
       - /tmp/scripts/verify-hashes.sh
     volumes:
-      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/home:/tmp/node
       - ./.docker/scripts:/tmp/scripts
-      - ./mainnet/xion-testnet-1:/tmp/testnet
