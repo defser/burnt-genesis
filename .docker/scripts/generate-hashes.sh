@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-export MOUNTDIR="/tmp/testnet"
+export MOUNTDIR="/tmp/node"
 export HASH_FILE="${MOUNTDIR}/genesis.asc"
 
 function setup() {
