@@ -13,20 +13,20 @@ services:
     command:
       - /tmp/scripts/gentx.sh
     environment:
-      MONIKER: "🔥 ahi.burnt.com 🔥"
+      MONIKER: "Helios Staking"
       CHAIN_ID: "xion-mainnet-1"
       GENESIS_AMOUNT: "1000000uxion"
-      KEYNAME: "ahi.burnt.com"
+      KEYNAME: "heliosstaking.com"
       KEYRING_BACKEND: "file"
       KEYRING_PASSPHRASE: "SuperSecretPassphrase42069"
       MNEMONIC: ""  # giant dynamic salmon...
       VAL_COMMISSION_MAX_RATE: "1.00"
       VAL_COMMISSION_MAX_CHANGE_RATE: "1.00"
       VAL_COMMISSION_RATE: "1.00"
-      VAL_DETAILS: "https://burnt.com"
-      VAL_IDENTITY: "FFBBF0F93A1E9190"
-      VAL_SECURITY_CONTACT: "daemon@burnt.com"
-      VAL_WEBSITE: "https://burnt.com"
+      VAL_DETAILS: "https://kevin@heliosstatking.com"
+      VAL_IDENTITY: "-"
+      VAL_SECURITY_CONTACT: "kevin@heliosstatking.com"
+      VAL_WEBSITE: "https://heliosstatking.com"
     volumes:
       - ./.docker/home:/home/xiond/.xiond
       - ./.docker/scripts:/tmp/scripts
@@ -39,7 +39,7 @@ services:
     command:
       - /tmp/scripts/add-genesis-account.sh
     environment:
-      MONIKER: "🔥 ahi.burnt.com 🔥"
+      MONIKER: "Helios Staking"
       CHAIN_ID: "xion-mainnet-1"
       GENESIS_AMOUNT: "1000000uxion"
       ADDRESS: ""
