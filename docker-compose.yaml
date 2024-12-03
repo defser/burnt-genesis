@@ -18,6 +18,9 @@ services:
     user: xiond:xiond
     command:
       - /tmp/scripts/initialize-xion-daemon.sh
+    environment:
+      MONIKER: "Helios Staking"
+      CHAIN_ID: "xion-testnet-1"
     volumes:
       - ./.docker/home:/home/xiond/.xiond
       - ./.docker/scripts:/tmp/scripts
