@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-export MOUNTDIR="/tmp/node"
-export HASH_FILE="${MOUNTDIR}/genesis.asc"
+export BASEDIR="/tmp/node"
+export HASH_FILE="${BASEDIR}/genesis.asc"
 
 function setup() {
   apt-get update
@@ -18,8 +18,8 @@ function setup() {
 #
 
 setup
-cd ${MOUNTDIR}
-echo "SHA-256:" $(sha256sum ${MOUNTDIR}/genesis.json) > "$HASH_FILE"
-echo "SHA-512:" $(sha512sum ${MOUNTDIR}/genesis.json) >> "$HASH_FILE"
-echo "SHAKE128:" $(cat ${MOUNTDIR}/genesis.json | openssl dgst -shake128) >> "$HASH_FILE"
-echo "SHAKE256:" $(cat ${MOUNTDIR}/genesis.json | openssl dgst -shake256) >> "$HASH_FILE"
+cd ${BASEDIR}
+echo "SHA-256:" $(sha256sum ${BASEDIR}/genesis.json) > "$HASH_FILE"
+echo "SHA-512:" $(sha512sum ${BASEDIR}/genesis.json) >> "$HASH_FILE"
+echo "SHAKE128:" $(cat ${BASEDIR}/genesis.json | openssl dgst -shake128) >> "$HASH_FILE"
+echo "SHAKE256:" $(cat ${BASEDIR}/genesis.json | openssl dgst -shake256) >> "$HASH_FILE"
