@@ -23,7 +23,7 @@ services:
       VAL_COMMISSION_MAX_RATE: "1.00"
       VAL_COMMISSION_MAX_CHANGE_RATE: "1.00"
       VAL_COMMISSION_RATE: "1.00"
-      VAL_DETAILS: "https://kevin@heliosstatking.com"
+      VAL_DETAILS: "https://heliosstatking.com"
       VAL_IDENTITY: "-"
       VAL_SECURITY_CONTACT: "kevin@heliosstatking.com"
       VAL_WEBSITE: "https://heliosstatking.com"
