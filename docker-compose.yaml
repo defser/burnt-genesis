@@ -94,35 +94,55 @@ services:
   # xion-testnet-1
   #
 
-  validate-genesis-xion-testnet-1:
+  initialize-xion-testnet-1:
     image: burntnetwork/xion:latest
     platform: linux/amd64
     user: xiond:xiond
     command:
-      - /tmp/scripts/validate-genesis.sh
+      - /tmp/scripts/initialize-xion-daemon.sh
+    volumes:
+      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/scripts:/tmp/scripts
+
+  download-genesis-xion-testnet-1:
+    image: burntnetwork/xion:latest
+    platform: linux/amd64
+    user: xiond:xiond
+    command:
+      - /tmp/scripts/testnet-download-genesis-file.sh
+    volumes:
+      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/scripts:/tmp/scripts
+
+  discover-peers-xion-testnet-1:
+    image: burntnetwork/xion:latest
+    platform: linux/amd64
+    user: xiond:xiond
+    command:
+      - /tmp/scripts/specify-seed-node-to-discover-peers.sh
+    volumes:
+      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/scripts:/tmp/scripts
+
+  download-node-snapshot-xion-testnet-1:
+    image: burntnetwork/xion:latest
+    platform: linux/amd64
+    user: xiond:xiond
+    command:
+      - /tmp/scripts/testnet-download-node-snapshot.sh
+    volumes:
+      - ./.docker/home:/home/xiond/.xiond
+      - ./.docker/scripts:/tmp/scripts
+
+  start-daemon-xion-testnet-1:
+    image: burntnetwork/xion:latest
+    platform: linux/amd64
+    user: xiond:xiond
+    command:
+      - /tmp/scripts/start-xion-daemon.sh
     environment:
       MONIKER: "Helios Staking"
       CHAIN_ID: "xion-testnet-1"
     volumes:
-      - ./.docker/home:/tmp/node
-      - ./.docker/scripts:/tmp/scripts
-
-  generate-hashes-xion-testnet-1:
-    image: debian:bookworm-20240130-slim
-    platform: linux/amd64
-    user: xiond:xiond
-    command:
-      - /tmp/scripts/generate-hashes.sh
-    volumes:
-      - ./.docker/home:/tmp/node
-      - ./.docker/scripts:/tmp/scripts
-
-  verify-hashes-xion-testnet-1:
-    image: debian:bookworm-20240130-slim
-    platform: linux/amd64
-    user: xiond:xiond
-    command:
-      - /tmp/scripts/verify-hashes.sh
-    volumes:
-      - ./.docker/home:/tmp/node
+      - ./.docker/home:/home/xiond/.xiond
       - ./.docker/scripts:/tmp/scripts
