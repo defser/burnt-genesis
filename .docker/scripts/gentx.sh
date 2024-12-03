@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-export BASEDIR="/home/xiond/.xiond"
-export MOUNTDIR="/tmp/testnet"
+export BASEDIR="/tmp/node"
 
 function setup_node() {
   xiond init "${MONIKER}" --chain-id "${CHAIN_ID}" --home "${BASEDIR}" --overwrite
-  cp -vf ${MOUNTDIR}/genesis.json ${BASEDIR}/config/genesis.json
 }
 
 function setup_wallet() {
@@ -48,11 +46,6 @@ function gentx() {
   set -x
 
   xiond genesis validate-genesis
-
-  mkdir -vp "${MOUNTDIR}/gentx"
-  cp -vf "${BASEDIR}/config/gentx/"gentx*.json "${MOUNTDIR}/gentx/${MONIKER}.json"
-  rm -vf "${BASEDIR}/config/gentx/"gentx*.json
-  cp -vf "${BASEDIR}/config/genesis.json" "${MOUNTDIR}/genesis.json"
 }
 
 setup_node
