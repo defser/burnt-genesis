@@ -55,7 +55,7 @@ services:
     command:
       - /tmp/scripts/collect-gentxs.sh
     environment:
-      MONIKER: "burnt"
+      MONIKER: "Helios Staking"
       CHAIN_ID: "xion-mainnet-1"
     volumes:
       - ./.docker/home:/home/xiond/.xiond
@@ -69,7 +69,7 @@ services:
     command:
       - /tmp/scripts/validate-genesis.sh
     environment:
-      MONIKER: "burnt"
+      MONIKER: "Helios Staking"
       CHAIN_ID: "xion-mainnet-1"
     volumes:
       - ./.docker/scripts:/tmp/scripts
@@ -104,7 +104,7 @@ services:
     command:
       - /tmp/scripts/validate-genesis.sh
     environment:
-      MONIKER: "burnt"
+      MONIKER: "Helios Staking"
       CHAIN_ID: "xion-testnet-1"
     volumes:
       - ./.docker/home:/home/xiond/.xiond
