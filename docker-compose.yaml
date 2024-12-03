@@ -98,7 +98,7 @@ services:
   #
 
   validate-genesis-xion-testnet-1:
-    image: burntnetwork/xion:0.1.0
+    image: burntnetwork/xion:0.3.7
     platform: linux/amd64
     user: xiond:xiond
     command:
