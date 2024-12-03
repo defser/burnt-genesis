@@ -3,22 +3,9 @@ clean:
 	rm -rvf ".docker/home/config"/*
 	rm -rvf ".docker/home/keyring"*
 
-hash:
-	docker-compose up generate-hashes
-verify:
-	docker-compose up verify-hashes
-validate:
-	docker-compose up validate-genesis
-
-gentx:
-	docker-compose up gentx
-	docker-compose up generate-hashes
-	docker-compose up verify-hashes
-
-account:
-	docker-compose up add-genesis-account
-
-collect:
-	docker-compose up collect-gentxs
-	docker-compose up generate-hashes
-	docker-compose up verify-hashes
+testnet-node:
+	docker-compose up initialize-xion-testnet-1
+	docker-compose up download-genesis-xion-testnet-1
+	docker-compose up discover-peers-xion-testnet-1
+	docker-compose up download-node-snapshot-xion-testnet-1
+	docker-compose up start-daemon-xion-testnet-1
