@@ -40,7 +40,7 @@ services:
     platform: linux/amd64
     user: xiond:xiond
     command:
-      - /tmp/scripts/specify-seed-node-to-discover-peers.sh
+      - /tmp/scripts/testnet-specify-seed-node-to-discover-peers.sh
     volumes:
       - ./.docker/home:/home/xiond/.xiond
       - ./.docker/scripts:/tmp/scripts
