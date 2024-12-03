@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-export MOUNTDIR="/tmp/testnet"
-export HASH_FILE="${MOUNTDIR}/genesis.asc"
+export BASEDIR="/tmp/node"
+export HASH_FILE="${BASEDIR}/genesis.asc"
 
 function setup() {
   apt-get update
@@ -45,7 +45,7 @@ function verify_hash() {
 }
 
 setup
-verify_hash "SHA-256" "${MOUNTDIR}/genesis.json"
-verify_hash "SHA-512" "${MOUNTDIR}/genesis.json"
-verify_hash "SHAKE128" "${MOUNTDIR}/genesis.json"
-verify_hash "SHAKE256" "${MOUNTDIR}/genesis.json"
+verify_hash "SHA-256" "${BASEDIR}/genesis.json"
+verify_hash "SHA-512" "${BASEDIR}/genesis.json"
+verify_hash "SHAKE128" "${BASEDIR}/genesis.json"
+verify_hash "SHAKE256" "${BASEDIR}/genesis.json"
