@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-export BASEDIR="/home/xiond/.xiond"
-export MOUNTDIR="/tmp/testnet"
+export BASEDIR="/tmp/node"
 export MONIKER=${MONIKER:-"burnt"}
 export CHAIN_ID=${CHAIN_ID:-"test"}
 
 function setup() {
   xiond init "${MONIKER}" --chain-id "${CHAIN_ID}" --home "${BASEDIR}" --overwrite
-  cp -vf ${MOUNTDIR}/genesis.json ${BASEDIR}/config/genesis.json
 }
 
 #
